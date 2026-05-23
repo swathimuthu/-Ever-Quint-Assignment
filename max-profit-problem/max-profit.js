@@ -1,28 +1,7 @@
-/**
- * Max Profit Problem
- * ------------------
- * Mr. X builds properties one at a time on Mars Land.
- * Given N units of time, find the combination of Theatres (T),
- * Pubs (P), and Commercial Parks (C) that maximizes earnings.
- *
- * Build times:  T = 5, P = 4, C = 10
- * Earnings/unit: T = $1500, P = $1000, C = $2000
- * Constraint:   5T + 4P + 10C <= N
- *
- * Time Complexity: O(N²)
- * Space Complexity: O(1)
- *
- * Test Cases:
- *   N=7  → $3000  (T:1 P:0 C:0 or T:0 P:1 C:0)
- *   N=8  → $4500  (T:1 P:0 C:0)
- *   N=13 → $16500 (T:2 P:0 C:0)
- */
-
 function calculateEarnings(N, T, P, C) {
   let earnings = 0;
   let time_elapsed = 0;
 
-  // Build order: T → P → C (sorted by earnings/build-time ratio)
   for (let i = 0; i < T; i++) {
     time_elapsed += 5;
     earnings += (N - time_elapsed) * 1500;
@@ -50,14 +29,12 @@ function maxProfit(N) {
     for (let P = 0; P <= Math.floor(remaining_after_T / 4); P++) {
       let remaining_after_P = remaining_after_T - 4 * P;
 
-      // C doesn't need a loop — always use max possible
       let C = remaining_after_P >= 10
         ? Math.floor(remaining_after_P / 10)
         : 0;
 
       let current_earnings = calculateEarnings(N, T, P, C);
 
-      // Early exit — earnings only go down from here
       if (current_earnings < prev_earnings) break;
       prev_earnings = current_earnings;
 
