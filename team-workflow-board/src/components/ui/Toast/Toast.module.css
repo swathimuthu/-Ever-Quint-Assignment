@@ -1,0 +1,78 @@
+.toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  min-width: 280px;
+  max-width: 420px;
+
+  padding: 14px 16px;
+
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-md);
+
+  color: white;
+
+  animation: slideIn 0.2s ease;
+
+  font-size: var(--font-size-md);
+}
+
+.message {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Variants */
+
+.success {
+  background-color: var(--color-success);
+}
+
+.error {
+  background-color: var(--color-danger);
+}
+
+.info {
+  background-color: var(--color-primary);
+}
+
+/* Close Button */
+
+.closeButton {
+  border: none;
+  background: transparent;
+
+  color: inherit;
+
+  cursor: pointer;
+
+  font-size: 18px;
+  line-height: 1;
+
+  padding: 0;
+
+  opacity: 0.9;
+
+  transition: opacity var(--transition-fast);
+}
+
+.closeButton:hover {
+  opacity: 1;
+}
+
+/* Animation */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
