@@ -21,7 +21,7 @@
 .label {
   font-size: var(--font-size-sm);
   font-weight: 500;
-  color: #374151;
+  color: var(--color-text-primary);
 }
 
 /* textArea wrapper */
@@ -38,7 +38,7 @@
   padding: 8px 12px;
   font-size: var(--font-size-md);
   font-family: var(--font-sans);
-  border: 1.5px solid #D1D5DB;
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
   outline: none;
   transition: border-color 0.15s;
