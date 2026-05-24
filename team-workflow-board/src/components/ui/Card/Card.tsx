@@ -1,12 +1,13 @@
 import React from 'react';
+
 import styles from './Card.module.css';
 
-interface CardProps {
+interface CardProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   padding?: 'sm' | 'md' | 'lg';
   hoverable?: boolean;
-  onClick?: () => void;
 }
 
 export function Card({
@@ -14,7 +15,7 @@ export function Card({
   className = '',
   padding = 'md',
   hoverable = false,
-  onClick,
+  ...rest
 }: CardProps) {
   return (
     <div
@@ -24,7 +25,7 @@ export function Card({
         ${hoverable ? styles.hoverable : ''}
         ${className}
       `}
-      onClick={onClick}
+      {...rest}
     >
       {children}
     </div>

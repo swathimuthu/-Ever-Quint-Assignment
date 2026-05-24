@@ -36,9 +36,20 @@ export const TaskCard = React.memo(function TaskCard({
 }: TaskCardProps) {
   return (
     <Card
-      hoverable
-      onClick={onEdit}
-      className={styles.card}
+    hoverable
+    onClick={onEdit}
+    className={styles.card}
+    role="button"
+    tabIndex={0}
+    onKeyDown={(event) => {
+        if (
+        event.key === 'Enter' ||
+        event.key === ' '
+        ) {
+        event.preventDefault();
+        onEdit();
+        }
+    }}
     >
       <div className={styles.header}>
         <h3 className={styles.title}>
