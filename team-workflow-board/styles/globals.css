@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #4F46E5;
+  --color-danger: #EF4444;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+
+  --priority-low: #22C55E;
+  --priority-medium: #F59E0B;
+  --priority-high: #EF4444;
+
+  --status-backlog: #94A3B8;
+  --status-in-progress: #4F46E5;
+  --status-done: #22C55E;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+}
