@@ -1,46 +1,182 @@
-# Getting Started with Create React App
+# Team Workflow Board
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A lightweight Kanban-style task management application built with React and TypeScript.
 
-## Available Scripts
+This project was developed as part of a frontend engineering assignment with a focus on:
+- reusable component architecture,
+- accessibility,
+- URL-synchronized filters,
+- local persistence,
+- performance optimization,
+- maintainability.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Task Management
+- Create tasks
+- Edit existing tasks
+- Delete tasks
+- Organize tasks by status:
+  - Backlog
+  - In Progress
+  - Done
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Filtering & Sorting
+- Search tasks by title/description
+- Filter by priority
+- Sort by:
+  - Updated date
+  - Created date
+  - Priority
+- URL query string synchronization for shareable state
 
-### `npm test`
+### Persistence
+- Tasks persist using `localStorage`
+- Schema versioning + migration support
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Accessibility
+- Semantic form labels
+- Keyboard accessible task cards
+- Accessible modal dialog
+- ARIA attributes for validation and notifications
 
-### `npm run build`
+### UX Improvements
+- Empty states
+- Toast notifications
+- Responsive layout
+- Error handling for storage failures
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Testing
+- Create task workflow test
+- Filter behavior test
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+- React
+- TypeScript
+- React Router
+- CSS Modules
+- React Testing Library
+- Jest
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```txt
+src/
+├── components/
+│   ├── board/
+│   └── ui/
+├── context/
+├── hooks/
+├── styles/
+├── types/
+├── utils/
+└── __tests__/
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## Running Locally
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Install dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+yarn install
+```
+
+### Start development server
+
+```bash
+yarn start
+```
+
+### Run tests
+
+```bash
+yarn test
+```
+
+---
+
+## Architecture Highlights
+
+### Component-Driven Structure
+The application is organized around reusable UI and feature components.
+
+### Context-Based State Management
+React Context + custom hooks were chosen instead of Redux because:
+- application state is relatively small,
+- avoids unnecessary complexity,
+- keeps architecture lightweight and maintainable.
+
+### URL-Driven Filters
+Filter state is synchronized using `URLSearchParams` to support:
+- shareable URLs,
+- refresh persistence,
+- browser navigation compatibility.
+
+### Local Storage Versioning
+Storage schema versioning allows future migration support without breaking saved user data.
+
+---
+
+## Performance Optimizations
+
+Implemented optimizations include:
+- `React.memo` for task cards
+- `useMemo` for filtered/grouped task calculations
+- `useCallback` for CRUD handlers
+- scoped rendering updates
+
+---
+
+## Accessibility Considerations
+
+- Keyboard navigable task interactions
+- Accessible modal dialog
+- Form validation states
+- Proper semantic roles and labels
+- Toast notifications announced using `role="alert"`
+
+---
+
+## Tradeoffs & Decisions
+
+### Why No Drag & Drop?
+Drag-and-drop functionality was intentionally excluded to prioritize:
+- core assignment requirements,
+- maintainability,
+- accessibility,
+- overall application quality.
+
+### Why Context Instead of Redux?
+Redux would introduce unnecessary boilerplate for the current application size.
+
+Context + hooks provided:
+- simpler architecture,
+- easier maintainability,
+- sufficient scalability for assignment scope.
+
+---
+
+## Future Improvements
+
+Potential future enhancements:
+- Drag-and-drop task movement
+- Debounced search filtering
+- Dark mode
+- Advanced filter combinations
+- Backend synchronization
+- Virtualized rendering for large datasets
+
+---
+
+## Author
+
+Built by Swathi Muthuvel.
