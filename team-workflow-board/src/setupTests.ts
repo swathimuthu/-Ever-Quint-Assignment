@@ -3,3 +3,18 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+HTMLDialogElement.prototype.showModal =
+  function () {
+    this.open = true;
+  };
+
+HTMLDialogElement.prototype.close =
+  function () {
+    this.open = false;
+  };
+
+  Object.defineProperty(global, 'crypto', {
+  value: {
+    randomUUID: () => 'mock-uuid',
+  },
+});

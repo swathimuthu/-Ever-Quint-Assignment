@@ -68,6 +68,8 @@ export function Modal({
       ref={dialogRef}
       className={styles.modal}
       aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
     >
       <div className={styles.header}>
         <h2

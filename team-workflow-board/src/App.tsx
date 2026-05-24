@@ -25,6 +25,7 @@ import { filterTasks } from './utils/taskHelpers';
 import { Task } from './types';
 
 import './styles/globals.css';
+import './App.css';
 import { EmptyState } from './components/ui/EmptyState';
 
 function AppContent() {
