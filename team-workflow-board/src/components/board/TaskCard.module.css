@@ -1,0 +1,73 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+
+  color: var(--color-text-primary);
+
+  word-break: break-word;
+}
+
+.description {
+  margin: 0;
+
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+
+  color: var(--color-text-secondary);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 4px 8px;
+
+  border-radius: var(--radius-sm);
+
+  background-color: var(--color-surface-hover);
+
+  font-size: var(--font-size-sm);
+
+  color: var(--color-text-secondary);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: auto;
+}
+
+.assignee,
+.time {
+  font-size: var(--font-size-sm);
+
+  color: var(--color-text-muted);
+}
