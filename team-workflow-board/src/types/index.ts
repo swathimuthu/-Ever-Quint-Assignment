@@ -25,3 +25,11 @@ export interface FilterState {
   sortBy: 'createdAt' | 'updatedAt' | 'priority';
   sortDir: 'asc' | 'desc';
 }
+
+export type ToastType = 'success' | 'error' | 'info';
+
+export interface Toast {
+  id: string;
+  message: string;
+  type: ToastType;
+}
