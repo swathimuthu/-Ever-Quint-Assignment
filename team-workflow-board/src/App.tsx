@@ -25,6 +25,7 @@ import { filterTasks } from './utils/taskHelpers';
 import { Task } from './types';
 
 import './styles/globals.css';
+import { EmptyState } from './components/ui/EmptyState';
 
 function AppContent() {
   const {
@@ -93,16 +94,9 @@ function AppContent() {
   }
 
   return (
-    <div className="app">
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '24px',
-        }}
-      >
-        <h1>
+    <main className="app">
+      <header className="header">
+        <h1 className="title">
           Team Workflow Board
         </h1>
 
@@ -113,14 +107,35 @@ function AppContent() {
         >
           New Task
         </Button>
-      </div>
+      </header>
 
       <FilterBar />
 
-      <BoardView
-        tasks={filteredTasks}
-        onEditTask={setEditingTask}
-      />
+      {tasks.length === 0 ? (
+        <EmptyState
+          title="No tasks yet"
+          description="Create your first task to get started."
+          action={
+            <Button
+              onClick={() =>
+                setIsCreateModalOpen(true)
+              }
+            >
+              Create Task
+            </Button>
+          }
+        />
+      ) : filteredTasks.length === 0 ? (
+          <EmptyState
+            title="No matching tasks"
+            description="Try adjusting your filters or search query."
+          />
+      ) : (
+          <BoardView
+            tasks={filteredTasks}
+            onEditTask={setEditingTask}
+          />
+      )}
 
       <Modal
         open={isCreateModalOpen}
@@ -163,7 +178,7 @@ function AppContent() {
         toasts={toasts}
         onClose={removeToast}
       />
-    </div>
+    </main>
   );
 }
 

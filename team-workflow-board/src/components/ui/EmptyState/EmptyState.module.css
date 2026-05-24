@@ -1,0 +1,39 @@
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 48px 24px;
+
+  text-align: center;
+}
+
+.icon {
+  font-size: 48px;
+
+  margin-bottom: 16px;
+}
+
+.title {
+  margin: 0 0 8px;
+
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+
+  color: var(--color-text-primary);
+}
+
+.description {
+  margin: 0;
+
+  max-width: 420px;
+
+  line-height: 1.6;
+
+  color: var(--color-text-secondary);
+}
+
+.action {
+  margin-top: 24px;
+}
